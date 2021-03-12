@@ -108,6 +108,12 @@ Execute novamente o **ESLint** para verificar a quantidade de alertas e erros:
 npm run -s eslint .
 ```
 
+### 1.6 Executando o ESLint no VSCode (IDE)
+
+No menu à esquerda, selecione o item `Extensões` e procure por `ESLint`. Clique na primeira opção e sem seguida `Install`, conforme print abaixo:
+
+![image](https://user-images.githubusercontent.com/609076/110991082-ea83df80-8352-11eb-8947-047f93d4b3cc.png)
+
 ## 2. Implementando Testes Unitários
 
 ## 3. Implementando Stubs e Mocks
