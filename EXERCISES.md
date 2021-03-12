@@ -1,0 +1,115 @@
+# Exercícios práticos sobre teste de software
+
+Siga as instruções abaixo para instalar as ferramentas utilizadas para melhorar a qualidade da aplicação.
+
+## 1. Usando o Linter
+
+### 1.1 Instalando o ESLint
+
+Acesse a raíz do projeto e execute o seguinte comando para instalar o ESLint
+
+```bash
+npm install -D eslint
+```
+
+No arquivo `package.json`, linha 12, abaixo de `debug` adicione a seguinte linha:
+
+```json
+"eslint": "eslint",
+```
+
+Seu objeto `scripts` deve ficar assim:
+
+```json
+"scripts": {
+    "debug": "cross-env DEBUG=restaurant-reservation:* nodemon",
+    "eslint": "eslint",
+    "start": "node bin/www"
+  },
+```
+
+### 1.2 Configurando ESLint
+
+Na raiz do projeto, crie um arquivo chamado `.eslintrc.js`. Em seguida adicione o seguinte conteúdo o arquivo:
+
+```javascript
+module.exports = {
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-multiple-empty-lines": "warn",
+    "no-var": "error",
+    "prefer-const": "error"
+  }
+};
+```
+
+### 1.3 Executando ESLint
+
+Vamos, inicialmente, verificar o nosso arquivo principal `app.js`. Para executar o **ESLint** pela primeira vez, e somente neste arquivo, execute:
+
+```bash
+npm run -s eslint app.js
+```
+
+Você verá uma lista de erros listados de acordo com as configurações que definimos no arquivo `.eslintrc.js`. Para validar toda a nossa base de código, execute:
+
+```bash
+npm run -s eslint .
+```
+
+### 1.4 Definindo uma hierarquia para o ESLint
+
+Na pasta `public`, adicione um novo arquivo `.eslintrc.js` que define configurações específicas de validação de javascript mais amigáveis para navegadores. Adicione o seguinte conteúdo ao arquivo:
+
+```javascript
+module.exports = {
+  "parserOptions": {
+    "sourceType": "script"
+  },
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "node": false
+  },
+  "rules": {
+    "no-var": "off",
+    "prefer-const": "off"
+  }
+}
+```
+
+Execute novamente o ESLint para verificar a nova quantidade de erros e alertas encontrados:
+
+```bash
+npm run -s eslint .
+```
+
+### 1.5 Removendo código de terceiros do linter
+
+Quando analisando a qualidade do código da nossa aplicação, não devemos nos preocupar com o código das bibliotecas (código de terceiros) que utilizamos. Portanto devemos excluir essa base de código da análise do linter.
+
+Na raiz do projeto, adicione um arquivo com o nome `.eslintignore` e adicione a seguinte linha:
+
+```properties
+public/contrib/*
+```
+
+Execute novamente o **ESLint** para verificar a quantidade de alertas e erros:
+
+```bash
+npm run -s eslint .
+```
+
+## 2. Implementando Testes Unitários
+
+## 3. Implementando Stubs e Mocks
+
+## 4. Analisando Cobertura de Testes
