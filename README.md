@@ -23,9 +23,7 @@ The server persists using a SQLite3 database named `database.sqlite` in the site
 
 ### Windows users
 
-You may need to install some dependencies on your machine prior to the installation. First, download the latest [Python version](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe).
-
-Then, with admin privileges, execute the following commands
+You may need to install some dependencies on your machine prior to the installation. Open `VSCode` with admin privileges.
 
 ```bash
 npm install --global --production windows-build-tools
