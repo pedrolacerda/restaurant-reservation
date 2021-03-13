@@ -28,6 +28,7 @@ You may need to install some dependencies on your machine prior to the installat
 ```bash
 npm install --global --production windows-build-tools
 npm install -g node-gyp
+npm rebuild
 ```
 
 ## Development
