@@ -21,6 +21,17 @@ There are three routes:
 
 The server persists using a SQLite3 database named `database.sqlite` in the site root.
 
+### Windows users
+
+You may need to install some dependencies on your machine prior to the installation. First, download the latest [Python version](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe).
+
+Then, with admin privileges, execute the following commands
+
+```bash
+npm install --global --production windows-build-tools
+npm install -g node-gyp
+```
+
 ## Development
 
 ### Debugging
