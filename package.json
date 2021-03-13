@@ -10,6 +10,7 @@
   "scripts": {
     "debug": "cross-env DEBUG=restaurant-reservation:* nodemon",
     "eslint": "eslint",
+    "test": "mocha --recursive",
     "start": "node bin/www"
   },
   "dependencies": {
@@ -28,8 +29,10 @@
     "sqlite": "^2.8.0"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
     "cross-env": "^5.0.1",
     "eslint": "^7.21.0",
+    "mocha": "^8.3.2",
     "nodemon": "^1.11.0"
   }
 }
