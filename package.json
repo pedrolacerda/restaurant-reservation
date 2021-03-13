@@ -8,9 +8,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "coverage": "cross-env DEBUG=restaurant-reservation:* nyc --reporter=text --reporter=html mocha --recursive",
     "debug": "cross-env DEBUG=restaurant-reservation:* nodemon",
     "eslint": "eslint",
-    "test": "mocha --recursive",
+    "test": "cross-env DEBUG=restaurant-reservation:* mocha --recursive",
     "start": "node bin/www"
   },
   "dependencies": {
@@ -30,9 +31,14 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cross-env": "^5.0.1",
     "eslint": "^7.21.0",
     "mocha": "^8.3.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "nyc": "^15.1.0",
+    "proxyquire": "^2.1.3",
+    "sinon": "^9.2.4",
+    "sinon-chai": "^3.5.0"
   }
 }

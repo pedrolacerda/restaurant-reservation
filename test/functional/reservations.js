@@ -1,64 +1,3 @@
-# Exercícios práticos sobre teste de software
-
-Siga as instruções abaixo para instalar as ferramentas utilizadas para melhorar a qualidade da aplicação.
-
-## 4. Analisando Cobertura de Testes
-
-Para monitorar a cobertura de testes na nossa aplicação vamos usar o [**`Istanbul`**](https://istanbul.js.org/). 
-
-### 4.1 Instalando e configurando o `Istanbul`
-
-Para instalar o `Istanbul` execute o seguinte comando:
-
-```bash
-npm install -D nyc
-```
-
-_Sim, o `nyc`. É CLI para o **Istanbul**_
-
-No arquivo `package.json` adicione a seguinte linha no objeto `scripts`: `"coverage": "cross-env DEBUG=restaurant-reservation:* nyc --reporter=text --reporter=html mocha --recursive",`. Ele deve ficar da seguinte maneira:
-
-```json
-"scripts": {
-    "coverage": "cross-env DEBUG=restaurant-reservation:* nyc --reporter=text --reporter=html mocha --recursive",
-    "debug": "cross-env DEBUG=restaurant-reservation:* nodemon",
-    "eslint": "eslint",
-    "test": "cross-env DEBUG=restaurant-reservation:* mocha --recursive",
-    "start": "node bin/www"
-  },
-```
-
-Para analisar a cobertura de testes do projeto, execute:
-
-```bash
-npm run -s coverage
-```
-
-Junto com o relatório gerado no terminal, também foi gerado um relatório em HTML. Basta abrir o arquivo `./coverage/index.html` no seu browser.
-
-Precisamos remover os arquivos gerados automaticamente pelo relatório de cobertura de código do nosso linter. Para isso, abra o arquivo `.eslintignore` e adicione a seguinte linha:
-
-```properties
-coverage/*
-```
-
-<!--npm run -s eslint . -->
-
-### 4.2 Instalando e configurando o `chai-http`
-
-Para testes funcionais, vamos utilizar o `chai-http`. Uma biblioteca que utiliza o SuperAgent, uma biblioteca de requisições HTTP pequena e progressiva, do lado do cliente.
-
-Para instalar o `chai-http` execute o seguinte comando:
-
-```bash
-npm install -D chai-http
-```
-
-### 4.3 Criando testes funcionais
-
-Crie um novo arquivo de testes para os testes funcionais: `./test/functional/reservations.js`. Ele deve ter o seguinte conteúdo:
-
-```javascript
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const proxyquire = require('proxyquire');
@@ -157,4 +96,3 @@ describe('/reservations', function() {
     });
   });
 });
-```
